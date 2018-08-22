@@ -12,16 +12,21 @@
     <hr>
 
     <ul>
-        <li>Total Word Count: </li>
-        <li>Total Unique Words: </li>
+        <li>Total Word Count: @Html.DisplayFor(model => model.TotalWordCount)</li>
+        <li>Total Unique Words: @Html.DisplayFor(model => model.UniqueWordCount)</li>
     </ul>
 
     <table>
-        @for (int i = 0; i < (int)ViewData["TotalWordCount"]; i++)
+        <tr>
+            <th>Word</th>
+            <th>Occurrences</th>
+        </tr>
+
+        @for (int i = 0; i < (int)ViewData["UniqueWordCount"]; i++)
         {
             <tr>
-                <td>Word @i</td>
-                <td>Count @i</td>
+                <td>@Html.DisplayFor(model => model.UniqueWordCounts[i].Word)</td>
+                <td>@Html.DisplayFor(model => model.UniqueWordCounts[i].Count)</td>
             </tr>
         }
     </table>
