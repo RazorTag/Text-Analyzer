@@ -1,6 +1,6 @@
 using System;
 
-namespace Kingsley.TextAnalyzer.Web.Models
+namespace TextAnalyzer.Web.Models
 {
     public class ErrorViewModel
     {

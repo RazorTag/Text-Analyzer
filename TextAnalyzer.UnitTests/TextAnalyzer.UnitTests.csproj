@@ -17,11 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Kingsley.TextAnalyzer\Kingsley.TextAnalyzer.csproj" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <ProjectReference Include="..\TextAnalyzer\TextAnalyzer.csproj" />
+    <ProjectReference Include="..\TextAnalyzer\TextAnalyzer.csproj" />
   </ItemGroup>
 
 </Project>

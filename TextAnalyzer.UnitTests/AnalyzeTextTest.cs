@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using static Kingsley.TextAnalyzer.UniqueWords;
+using static TextAnalyzer.UniqueWords;
 
-namespace Kingsley.TextAnalyzer.UnitTests
+namespace TextAnalyzer.UnitTests
 {
     [TestClass]
     public class AnalyzeTextTest

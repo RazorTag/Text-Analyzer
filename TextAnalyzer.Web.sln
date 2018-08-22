@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextAnalyzer.Web", "TextAnalyzer.Web\TextAnalyzer.Web.csproj", "{E70E0B07-B730-493C-8173-06F2D4D397DB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{47859414-C2AB-4726-B5A0-86693932EDA6} = {47859414-C2AB-4726-B5A0-86693932EDA6}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextAnalyzer", "TextAnalyzer\TextAnalyzer.csproj", "{47859414-C2AB-4726-B5A0-86693932EDA6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextAnalyzer.UnitTests", "TextAnalyzer.UnitTests\TextAnalyzer.UnitTests.csproj", "{99DB7792-8FCE-451D-9FBE-231EEA016A49}"
+	ProjectSection(ProjectDependencies) = postProject
+		{47859414-C2AB-4726-B5A0-86693932EDA6} = {47859414-C2AB-4726-B5A0-86693932EDA6}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E70E0B07-B730-493C-8173-06F2D4D397DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E70E0B07-B730-493C-8173-06F2D4D397DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E70E0B07-B730-493C-8173-06F2D4D397DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E70E0B07-B730-493C-8173-06F2D4D397DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47859414-C2AB-4726-B5A0-86693932EDA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47859414-C2AB-4726-B5A0-86693932EDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47859414-C2AB-4726-B5A0-86693932EDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47859414-C2AB-4726-B5A0-86693932EDA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DB7792-8FCE-451D-9FBE-231EEA016A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DB7792-8FCE-451D-9FBE-231EEA016A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DB7792-8FCE-451D-9FBE-231EEA016A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DB7792-8FCE-451D-9FBE-231EEA016A49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {673D87F8-B42C-4E33-8C36-9DA240C6BFD4}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,28 @@
+﻿@model TextAnalyzer.Web.Models.TextAnalysisModel
+
+<div>
+    @using (Html.BeginForm("setp", "home"))
+    {
+        <div>
+            <textarea type="text" name="Text" id="scroll-box"></textarea>
+            <button type="button">Analyze Text</button>
+        </div>
+    }
+
+    <hr>
+
+    <ul>
+        <li>Total Word Count: </li>
+        <li>Total Unique Words: </li>
+    </ul>
+
+    <table>
+        @for (int i = 0; i < (int)ViewData["TotalWordCount"]; i++)
+        {
+            <tr>
+                <td>Word @i</td>
+                <td>Count @i</td>
+            </tr>
+        }
+    </table>
+</div>

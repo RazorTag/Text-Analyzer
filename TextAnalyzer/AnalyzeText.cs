@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using static Kingsley.TextAnalyzer.UniqueWords;
+using static TextAnalyzer.UniqueWords;
 
-namespace Kingsley.TextAnalyzer
+namespace TextAnalyzer
 {
     public class AnalyzeText
     {

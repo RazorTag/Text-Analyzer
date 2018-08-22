@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kingsley.TextAnalyzer
+namespace TextAnalyzer
 {
     public class UniqueWords
     {

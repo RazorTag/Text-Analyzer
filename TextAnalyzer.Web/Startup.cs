@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Kingsley.TextAnalyzer.Web
+namespace TextAnalyzer.Web
 {
     public class Startup
     {
