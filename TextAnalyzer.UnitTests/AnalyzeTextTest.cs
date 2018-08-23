@@ -1,9 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
 using static TextAnalyzer.UniqueWords;
 
 namespace TextAnalyzer.UnitTests
@@ -189,6 +186,22 @@ namespace TextAnalyzer.UnitTests
             uniqueWords = new List<string>(new string[] { "hyphenated-word", "word" });
             wordCounts = new List<UniqueWord>(new UniqueWord[] { new UniqueWord("hyphenated-word", 1), new UniqueWord("word", 1) });
             testCase = new TestCase(2, 2, uniqueWords, wordCounts, "hyphenated-word word");
+            testCases.Add(testCase);
+
+            //line
+            //line
+            //taboo
+            //
+            //line
+            uniqueWords = new List<string>(new string[] { "line", "taboo" });
+            wordCounts = new List<UniqueWord>(new UniqueWord[] { new UniqueWord("line", 3), new UniqueWord("taboo", 1) });
+            testCase = new TestCase(4, 2, uniqueWords, wordCounts, "line\nline\rtaboo\r\nline");
+            testCases.Add(testCase);
+
+            //we're aren't ain't were
+            uniqueWords = new List<string>(new string[] { "ain\'t", "aren\'t", "were", "we\'re" });
+            wordCounts = new List<UniqueWord>(new UniqueWord[] { new UniqueWord("ain\'t", 1), new UniqueWord("aren\'t", 1), new UniqueWord("were", 1), new UniqueWord("we\'re", 1) });
+            testCase = new TestCase(4, 4, uniqueWords, wordCounts, "we\'re aren\'t ain\'t were");
             testCases.Add(testCase);
 
             return testCases;

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using TextAnalyzer.Web.Models;
 using static TextAnalyzer.UniqueWords;
 
@@ -13,22 +9,38 @@ namespace TextAnalyzer.Web.Controllers
     {
         public IActionResult Index()
         {
-            ViewData["Title"] = "Text Analyzer";
+            //var DataModel = new TextAnalysisModel();
+            //DataModel.TotalWordCount = 0;
+            //DataModel.UniqueWordCount = 0;
+            //DataModel.UniqueWordCounts = new UniqueWord[0];
 
-            var DataModel = new TextAnalysisModel();
-            DataModel.TotalWordCount = 2;
-            DataModel.UniqueWordCount = 1;
-            DataModel.UniqueWordCounts = new UniqueWord[] { new UniqueWord("word", 2) };
-            ViewData["TotalWordCount"] = DataModel.TotalWordCount;
-            ViewData["UniqueWordCount"] = DataModel.UniqueWordCount;
-            ViewData["UniqueWordCounts"] = DataModel.UniqueWordCounts;
-            return View(DataModel);
+            //return View(DataModel);
+
+            return AnalyzeText("");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        /// <summary>
+        /// Analysis a text for word occurrences.
+        /// </summary>
+        /// <param name="text">The text to analyze.</param>
+        /// <returns>A new view to display.</returns>
+        [HttpPost]
+        public ActionResult AnalyzeText(string text)
+        {
+            var textAnalysis = new AnalyzeText(text);
+            var dataModel = new TextAnalysisModel();
+            dataModel.TotalWordCount = textAnalysis.TotalWordCount;
+            dataModel.UniqueWordCount = textAnalysis.UniqueWordCount;
+            dataModel.UniqueWordCounts = textAnalysis.UniqueWordCounts.ToArray();
+            dataModel.Text = text;
+
+            return View("Index", dataModel);
         }
     }
 }

@@ -19,5 +19,10 @@ namespace TextAnalyzer.Web.Models
         /// Alphabetical list of unique words with their corresponding counts.
         /// </summary>
         public UniqueWord[] UniqueWordCounts { get; set; }
+
+        /// <summary>
+        /// The user's text string to analyze.
+        /// </summary>
+        public string Text { get; set; }
     }
 }

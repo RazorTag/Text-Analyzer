@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using static TextAnalyzer.UniqueWords;
 
 namespace TextAnalyzer
@@ -33,6 +32,11 @@ namespace TextAnalyzer
         /// </summary>
         private UniqueWords uniqueWords;
 
+        /// <summary>
+        /// Delimiters to use for separating word.
+        /// </summary>
+        private char[] Delimiters { get { return new char[] { ' ', '\n', '\r'}; } }
+
         #endregion
 
         #region Constructor
@@ -57,7 +61,12 @@ namespace TextAnalyzer
         /// <param name="text">Text to analyze.</param>
         private void FindWords(string text)
         {
-            string[] rawWords = text.Split(' ');
+            if (text == null)
+            {
+                text = "";
+            }
+
+            string[] rawWords = text.Split(Delimiters);
             foreach (string rawWord in rawWords)
             {
                 AddWord(rawWord);
@@ -84,17 +93,36 @@ namespace TextAnalyzer
         /// <returns>The word without unwanted punctuation.</returns>
         private string CleanWord(string rawWord)
         {
-            List<char> characters = new List<char>(rawWord.ToCharArray());
+            List<char> word = new List<char>(rawWord.ToCharArray());
 
-            for (int i = characters.Count - 1; i >= 0 ; i--)
+            for (int i = word.Count - 1; i >= 0 ; i--)
             {
-                if (char.IsPunctuation(characters[i]) && characters[i] != '-')
+                if (word[i] == '\'' )
                 {
-                    characters.RemoveAt(i);
+                    CleanApostrophe(ref word, i);
+                }
+                else if (char.IsPunctuation(word[i]) && word[i] != '-')
+                {
+                    word.RemoveAt(i);
                 }
             }
 
-            return new string(characters.ToArray());
+            return new string(word.ToArray());
+        }
+
+        /// <summary>
+        /// Removes the apostrophe unless it appears to be a contraction apostrophe in the middle of alpha characters.
+        /// </summary>
+        /// <param name="characters">The word with an apostrophe in it.</param>
+        /// <param name="index">The index of the apostrophe in the word.</param>
+        private void CleanApostrophe(ref List<char> word, int index)
+        {
+            
+            if ((index == 0 || index == word.Count - 1)   //Always remove apostrophes on either end of the word.
+                || (!char.IsLetter(word[index - 1]) || !char.IsLetter(word[index + 1])))    //Only keep the apostrophe if both adjacent characters are letters.
+            {
+                word.RemoveAt(index);
+            }
         }
 
         #endregion
